@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommendations Home</title>
+</head>
+<body>
+   
+    <h3>Hello {{user_id}}</h3>
+    <h5>Here are your recommendations:</h5>
+    <ul>
+        {% for key, value in recommendations_dict.items %}
+            <li>{{ key }}: {{ value }}</li>
+        {% endfor %}
+    </ul>
+    <br><br>
+    <a href="{% url 'home' %}">Go Back to Home</a>
+</body>
+</html>

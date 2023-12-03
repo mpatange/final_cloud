@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommendations Home</title>
+</head>
+<body>
+   
+    <form action="{% url 'predict' %}">
+        <br><br>
+        <label for="userid">UserID</label><br>
+        <input type="text" id="userid" name="userid"><br>
+        <br><br>
+        <input type="submit" value="See Recommendations">
+      </form> 
+  
+</body>
+</html>
