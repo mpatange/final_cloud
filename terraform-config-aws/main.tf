@@ -1,5 +1,5 @@
 provider "aws" {
-  region = "us-west-2"  # Replace with your desired AWS region
+  region = "us-west-2"  # Set the AWS region
 }
 
 data "aws_ami" "latest_amazon_linux" {
@@ -7,26 +7,22 @@ data "aws_ami" "latest_amazon_linux" {
 
   filter {
     name   = "name"
-    values = ["amzn2-ami-hvm-*-x86_64-gp2"]
+    values = ["amzn2-ami-hvm-*-x86_64-gp2"]  # Filter for the Amazon Linux AMI
   }
 
   filter {
     name   = "virtualization-type"
-    values = ["hvm"]
+    values = ["hvm"]  # Specify the virtualization type
   }
 
-  owners = ["amazon"]
-  region = "us-west-2"
+  owners = ["amazon"]  # Specify the owner of the AMI
 }
-
-#Dynamicly take latest ami id of us-west-2
 
 resource "aws_instance" "example" {
-  ami           = data.aws_ami.latest_amazon_linux.id
-  instance_type = "t2.micro"
+  ami           = data.aws_ami.latest_amazon_linux.id  # Use the latest Amazon Linux AMI
+  instance_type = "t2.micro"  # Specify the instance type
+
   tags = {
-    Name = "mis547_terraform"
+    Name = "mis547_terraform"  # Tag the instance
   }
 }
-
-
