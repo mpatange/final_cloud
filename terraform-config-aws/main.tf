@@ -43,7 +43,7 @@ resource "aws_instance" "django-app" {
   security_groups = [aws_security_group.allow_web.name]
 
   tags = {
-    Name = "mis547_terraform"
+    Name = "cloudApp_terraform"
   }
   
   user_data = <<-EOF
