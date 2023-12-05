@@ -51,8 +51,8 @@ resource "aws_instance" "django-app" {
                 sudo yum update -y
                 sudo yum install -y docker
                 sudo service docker start
-                sudo docker pull mpatange/cloudproject:django-app
-                sudo docker run -d -p 80:8000 mpatange/cloudproject:django-app
+                sudo docker pull mpatange/movie-app:latest
+                sudo docker run -d -p 80:8000 mpatange/movie-app:latest
                 EOF
 
   connection {
