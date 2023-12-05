@@ -58,7 +58,7 @@ resource "aws_instance" "django-app" {
   connection {
     type        = "ssh"
     user        = "ec2-user"
-    private_key = file("${path.module}/cloud-key.pem")
+    private_key = file("${path.module}/547-key.pem")
     host        = self.public_ip
   }
 }
