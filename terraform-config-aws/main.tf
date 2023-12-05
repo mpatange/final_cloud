@@ -1,5 +1,5 @@
 provider "aws" {
-  region = "us-west-2"  # Set the AWS region
+  region = "us-west-2" # Set the AWS region
 }
 
 data "aws_ami" "latest_amazon_linux" {
@@ -7,15 +7,15 @@ data "aws_ami" "latest_amazon_linux" {
 
   filter {
     name   = "name"
-    values = ["amzn2-ami-hvm-*-x86_64-gp2"]  # Filter for the Amazon Linux AMI
+    values = ["amzn2-ami-hvm-*-x86_64-gp2"] # Filter for the Amazon Linux AMI
   }
 
   filter {
     name   = "virtualization-type"
-    values = ["hvm"]  # Specify the virtualization type
+    values = ["hvm"] # Specify the virtualization type
   }
 
-  owners = ["amazon"]  # Specify the owner of the AMI
+  owners = ["amazon"] # Specify the owner of the AMI
 }
 
 resource "aws_security_group" "allow_web" {
@@ -38,21 +38,21 @@ resource "aws_security_group" "allow_web" {
 }
 
 resource "aws_instance" "django-app" {
-  ami           = data.aws_ami.latest_amazon_linux.id
-  instance_type = "t2.micro"
+  ami             = data.aws_ami.latest_amazon_linux.id
+  instance_type   = "t2.micro"
   security_groups = [aws_security_group.allow_web.name]
 
   tags = {
     Name = "cloudApp_terraform"
   }
-  
+
   user_data = <<-EOF
                 #!/bin/bash
                 sudo yum update -y
                 sudo yum install -y docker
                 sudo service docker start
-                sudo docker pull mpatange/movie-app:latest
-                sudo docker run -d -p 80:8000 mpatange/movie-app:latest
+                sudo docker pull praveenrnair49/django-ec2:latest
+                sudo docker run -d -p 80:8000 praveenrnair49/django-ec2:latest
                 EOF
 
   connection {
