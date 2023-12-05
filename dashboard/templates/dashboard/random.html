@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Movie Recommendation</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('https://images.fineartamerica.com/images/artworkimages/mediumlarge/3/classic-movie-poster-collage-9-doug-siegel.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-color: #e0e0e0;
+        }
+        .container {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 8px;
+            border: 2px solid #007bff;
+            width: 60%;
+            animation: typing 3s steps(40) 1s forwards;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 2px solid #000;
+            margin-bottom: 50px; /* Increased space from the bottom */
+        }
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+        }
+        p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        a.button {
+            display: block; /* Changed to block to position at the bottom */
+            padding: 10px 20px;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            margin-top: 20px; /* Added space at the top */
+        }
+        a.button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p>Here is a random movie recommendation for you:</p>
+        <p>{{ response_text }}</p>
+        <a href="{% url 'home' %}" class="button">Go Back to Home</a>
+    </div>
+</body>
+</html>

@@ -3,17 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recommendations Home</title>
+    <title>Movie Recommendations</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('https://images.fineartamerica.com/images/artworkimages/mediumlarge/3/classic-movie-poster-collage-9-doug-siegel.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-color: #e0e0e0; /* Fallback color */
+        }
+        .container {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 8px;
+            border: 2px solid #ccc;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        form {
+            width: 300px;
+            margin: auto;
+            margin-bottom: 20px;
+        }
+        input[type="text"], input[type="submit"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            display: block;
+            margin: 0 auto;
+        }
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            display: block;
+            width: 100%;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        label {
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-   
-    <form action="{% url 'predict' %}">
-        <br><br>
-        <label for="userid">UserID</label><br>
-        <input type="text" id="userid" name="userid"><br>
-        <br><br>
-        <input type="submit" value="See Recommendations">
-      </form> 
-  
+    <div class="container">
+        <h1>Movie Recommendations</h1>
+        <form action="{% url 'predict' %}">
+            <label for="userid">UserID</label><br>
+            <input type="text" id="userid" name="userid" style="width: 80%;"><br><br>
+            <input type="submit" value="See Recommendations">
+        </form> 
+
+        <form action="{% url 'random' %}">
+            <input type="submit" value="Show me a Random Movie Recommendation">
+        </form> 
+    </div>
 </body>
 </html>

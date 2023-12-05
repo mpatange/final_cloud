@@ -20,6 +20,7 @@ from typing import Dict, Text
 from datetime import datetime
 import warnings
 warnings.filterwarnings('ignore')
+import requests
 # Create your views here.
 
 def home(request):
@@ -180,5 +181,20 @@ def predict(request):
     recommendations_dict = predict_movie(user_id)
     return render(request,'dashboard/predictions.html', {'user_id': user_id, 'recommendations_dict': recommendations_dict})
 
+
+def random(request):
+    function_endpoint = 'https://gtwlna3bg5.execute-api.us-west-2.amazonaws.com/default/SimpleFunction'
+    response = requests.get(function_endpoint)
+    if response.status_code == 200:
+        print("Response from Lambda:", response.text)
+        response2 = response.text
+    else:
+        print("Invocation failed:", response.text)
+    context = {
+        'response_text': response2  # Passing response_text to the template
+    }
+    print(context)
+    return render(request,'dashboard/random.html', context)
+   
 
     
