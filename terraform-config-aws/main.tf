@@ -37,7 +37,7 @@ resource "aws_security_group" "allow_web" {
   }
 }
 
-resource "aws_instance" "django-app" {
+resource "aws_instance" "DjangoFuckingHoster" {
   ami             = "ami-0230bd60aa48260c6"
   instance_type   = "t2.micro"
   security_groups = [aws_security_group.allow_web.name]
