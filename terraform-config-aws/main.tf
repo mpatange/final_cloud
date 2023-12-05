@@ -64,5 +64,5 @@ resource "aws_instance" "DjangoFuckingHoster" {
 }
 
 output "public_ip" {
-  value = aws_instance.django-app.public_ip
+  value = aws_instance.DjangoFuckingHoster.public_ip
 }
