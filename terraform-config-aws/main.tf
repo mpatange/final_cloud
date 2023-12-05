@@ -38,7 +38,7 @@ resource "aws_security_group" "allow_web" {
 }
 
 resource "aws_instance" "django-app" {
-  ami             = data.aws_ami.latest_amazon_linux.id
+  ami             = ami-0230bd60aa48260c6
   instance_type   = "t2.micro"
   security_groups = [aws_security_group.allow_web.name]
 
